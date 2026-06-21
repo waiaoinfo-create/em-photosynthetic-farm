@@ -6,119 +6,125 @@
 <title>EM菌與光合菌 — 農場實務操作完全手冊</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Noto Sans TC','Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:#1b4332}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Noto Sans TC','Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:#1a1a2e}
 .deck{width:100%;height:100%;position:relative;overflow:hidden}
 .slides{display:flex;height:100%;transition:transform .6s cubic-bezier(.22,.61,.36,1)}
-.slide{flex:0 0 100%;height:100%;overflow-y:auto;display:flex;flex-direction:column;background:#f0f7f4;padding:32px 40px}
-.slide::-webkit-scrollbar{width:4px}
-.slide::-webkit-scrollbar-thumb{background:#95d5b2;border-radius:2px}
-.nav{position:fixed;bottom:0;left:0;right:0;height:56px;background:rgba(27,67,50,.93);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;gap:20px;z-index:100;padding:0 24px}
-.nav-btn{background:rgba(255,255,255,.15);border:none;color:#fff;width:44px;height:36px;border-radius:8px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.nav-btn:hover{background:rgba(255,255,255,.28)}
-.nav-btn:disabled{opacity:.3;cursor:default}
-.counter{color:rgba(255,255,255,.8);font-size:.85rem;letter-spacing:1px;min-width:60px;text-align:center}
-.progress{flex:1;max-width:240px;height:4px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden}
-.progress-bar{height:100%;background:#95d5b2;border-radius:2px;transition:width .5s}
-.page-info{color:rgba(255,255,255,.6);font-size:.75rem}
-h1{font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:800;color:#1b4332}
-h2{font-size:clamp(1.2rem,2.2vw,1.6rem);color:#1b4332;border-left:5px solid #40916c;padding-left:16px;margin:0 0 14px}
-h3{font-size:clamp(.95rem,1.6vw,1.2rem);color:#2d6a4f;margin:10px 0 6px}
-.slide-content{max-width:1100px;width:100%;margin:0 auto;flex:1}
-.cover{background:linear-gradient(135deg,#1b4332 0%,#2d6a4f 50%,#40916c 100%);justify-content:center;align-items:center;text-align:center}
-.cover h1{color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.3)}
-.cover p{color:#b7e4c7;font-size:1.1rem;margin:8px auto 0;max-width:700px}
-.cover .sub{color:#95d5b2;font-size:.85rem;margin-top:20px}
-.end{background:linear-gradient(135deg,#1b4332 0%,#2d6a4f 100%);justify-content:center;align-items:center;text-align:center}
-.end h1{color:#fff}.end p{color:#b7e4c7}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;margin:6px 0}
-.card{background:#fff;border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,.06);padding:12px 14px}
-.card h4{font-size:.88rem;margin:0 0 4px;color:#2d6a4f}
-.card p{font-size:.8rem;color:#555;margin:0;line-height:1.5}
-.card-icon{font-size:1.5rem;margin-bottom:4px}
-table{width:100%;border-collapse:collapse;margin:6px 0;font-size:clamp(.72rem,1.1vw,.82rem)}
-th{background:#1b4332;color:#fff;padding:5px 8px;text-align:left;font-weight:500;font-size:.78rem}
-td{padding:5px 8px;border-bottom:1px solid #d8f3dc;color:#2c3e2d;font-size:.78rem}
-tr:nth-child(even){background:#edf7f0}
-.box{background:#d8f3dc;border-left:4px solid #2d6a4f;padding:8px 12px;margin:5px 0;border-radius:0 6px 6px 0;font-size:clamp(.75rem,1.1vw,.85rem);color:#1b4332}
-.box strong{color:#1b4332}
-.highlight{background:#fff;border-radius:8px;padding:12px;margin:5px 0;box-shadow:0 1px 6px rgba(0,0,0,.04)}
-.step{display:flex;gap:8px;margin:3px 0;align-items:flex-start}
-.step .num{background:#2d6a4f;color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-code{background:#d8f3dc;padding:1px 5px;border-radius:4px;font-size:.8rem;color:#2d6a4f}
-pre{background:#1b4332;color:#d8f3dc;padding:8px 12px;border-radius:6px;overflow-x:auto;font-size:.75rem;margin:4px 0;line-height:1.5}
-.tag{display:inline-block;background:#b7e4c7;color:#1b4332;padding:1px 8px;border-radius:8px;font-size:.65rem;font-weight:600;margin:1px}
-.tag.red{background:#f28482;color:#fff}
-.tag.orange{background:#f4d35e;color:#7f4f24}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:6px 0}
-.kpi-item{background:#fff;border-radius:8px;padding:10px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,.05)}
-.kpi-item .num{font-size:1.2rem;font-weight:800;color:#2d6a4f}
-.kpi-item .lbl{font-size:.68rem;color:#666;margin-top:2px}
-.star{color:#e8a020}
-@media(max-width:768px){.slide{padding:16px}.grid,.two-col{grid-template-columns:1fr}}
-.note{font-size:.72rem;color:#888;margin-top:4px}
+.slide{flex:0 0 100%;height:100%;overflow-y:auto;display:flex;flex-direction:column;background:#f8f9fa;padding:40px 52px}
+.slide::-webkit-scrollbar{width:5px}
+.slide::-webkit-scrollbar-thumb{background:#adb5bd;border-radius:3px}
+.nav{position:fixed;bottom:0;left:0;right:0;height:60px;background:rgba(26,26,46,.94);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;gap:24px;z-index:100;padding:0 24px}
+.nav-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.1);color:#fff;width:46px;height:38px;border-radius:10px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.nav-btn:hover{background:rgba(255,255,255,.25)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.counter{color:rgba(255,255,255,.85);font-size:.9rem;letter-spacing:1px;min-width:70px;text-align:center;font-weight:500}
+.progress{flex:1;max-width:260px;height:5px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#4361ee,#7209b7);border-radius:3px;transition:width .5s}
+h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:#1a1a2e}
+h2{font-size:clamp(1.3rem,2.5vw,1.7rem);color:#1a1a2e;border-left:5px solid #4361ee;padding-left:16px;margin:0 0 18px}
+h3{font-size:clamp(1rem,1.8vw,1.25rem);color:#3a0ca3;margin:12px 0 8px}
+.slide-content{max-width:1200px;width:100%;margin:0 auto;flex:1}
+.cover{background:linear-gradient(135deg,#0f0f23 0%,#1a1a2e 40%,#16213e 70%,#0f3460 100%);justify-content:center;align-items:center;text-align:center}
+.cover h1{color:#fff;text-shadow:0 2px 20px rgba(67,97,238,.4)}
+.cover p{color:#a8b2d1;font-size:1.15rem;margin:10px auto 0;max-width:720px;line-height:1.6}
+.cover .sub{color:#6c7a9e;font-size:.9rem;margin-top:24px}
+.cover .highlight-bar{width:60px;height:4px;background:linear-gradient(90deg,#4361ee,#7209b7);margin:16px auto 0;border-radius:2px}
+.end{background:linear-gradient(135deg,#0f0f23 0%,#1a1a2e 50%,#16213e 100%);justify-content:center;align-items:center;text-align:center}
+.end h1{color:#fff}.end p{color:#a8b2d1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin:10px 0}
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:16px 18px;border:1px solid #e9ecef}
+.card h4{font-size:.95rem;margin:0 0 6px;color:#3a0ca3}
+.card p{font-size:.85rem;color:#495057;margin:0;line-height:1.6}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:768px){.slide{padding:20px 16px}.grid,.two-col{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:clamp(.8rem,1.2vw,.9rem)}
+th{background:#1a1a2e;color:#fff;padding:8px 12px;text-align:left;font-weight:600;font-size:.82rem}
+td{padding:7px 12px;border-bottom:1px solid #dee2e6;color:#212529;font-size:.82rem}
+tr:nth-child(even){background:#f1f3f5}
+.box{background:#e7f0ff;border-left:4px solid #4361ee;padding:12px 16px;margin:8px 0;border-radius:0 8px 8px 0;font-size:clamp(.8rem,1.15vw,.88rem);color:#1a1a2e}
+.box strong{color:#3a0ca3}
+.highlight{background:#fff;border-radius:12px;padding:16px;margin:8px 0;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid #e9ecef}
+.step{display:flex;gap:10px;margin:5px 0;align-items:flex-start}
+.step .num{background:#4361ee;color:#fff;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+code{background:#e9ecef;padding:2px 7px;border-radius:5px;font-size:.85rem;color:#e63946}
+pre{background:#1a1a2e;color:#a8b2d1;padding:12px 16px;border-radius:8px;overflow-x:auto;font-size:.8rem;margin:6px 0;line-height:1.6}
+.tag{display:inline-block;background:#e7f0ff;color:#4361ee;padding:2px 10px;border-radius:10px;font-size:.72rem;font-weight:600;margin:2px}
+.tag.red{background:#ffe0e0;color:#e63946}
+.tag.green{background:#d3f9d8;color:#2b8a3e}
+.tag.purple{background:#e8dbff;color:#5a189a}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:10px 0}
+.kpi-item{background:rgba(255,255,255,.08);border-radius:12px;padding:14px;text-align:center;border:1px solid rgba(255,255,255,.1)}
+.kpi-item .num{font-size:1.6rem;font-weight:800;color:#4cc9f0}
+.kpi-item .lbl{font-size:.75rem;color:#a8b2d1;margin-top:4px}
+.star{color:#fca311}
+.note{font-size:.75rem;color:#868e96;margin-top:6px}
+.badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:.72rem;font-weight:600}
+.badge.primary{background:#4361ee;color:#fff}
+.badge.secondary{background:#6c757d;color:#fff}
+.icon{font-size:1.4rem;margin-right:4px}
+a{color:#4361ee;text-decoration:none}
+a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 <div class="deck">
 <div class="slides" id="slides">
 
-<!-- ===== SLIDE 0: COVER ===== -->
+<!-- ===== 0: COVER ===== -->
 <div class="slide cover">
 <h1>EM菌與光合菌</h1>
-<p>農場實務操作完全手冊</p>
-<p class="sub">從基礎理論到實務操作 · 成本分析 · 人力配置 · 真實案例 · 極致拆解<br>2026 年 6 月 21 日 &nbsp;|&nbsp; 資料來源：食工所、農業試驗所、農業知識入口網、上下游新聞</p>
+<div class="highlight-bar"></div>
+<p>農場實務操作完全手冊<br>從基礎理論到實務操作 · 成本分析 · 人力配置 · 真實案例 · 極致拆解</p>
+<p class="sub">2026 年 6 月 21 日 ｜ 資料來源：食工所、農業試驗所、農業知識入口網、上下游新聞</p>
 </div>
 
-<!-- ===== SLIDE 1: TOC ===== -->
+<!-- ===== 1: TOC ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>目錄</h2></div>
+<h2>目錄</h2>
 <div class="grid">
-<div class="card"><h4>壹、EM菌與光合菌概論</h4><p>起源、組成、功能定位、核心差異</p></div>
-<div class="card"><h4>貳、光合菌培養SOP</h4><p>材料清單 · 擴培步驟 · 品質判別</p></div>
-<div class="card"><h4>參、EM菌自製SOP</h4><p>活菌自產法 · 紅糖擴繁法</p></div>
-<div class="card"><h4>肆、四大應用領域</h4><p>種植 · 水產 · 畜禽 · 堆肥 · 防蟲液</p></div>
-<div class="card"><h4>伍、成本量化分析</h4><p>自製vs市售 · ROI &gt; 500%</p></div>
-<div class="card"><h4>陸、人力配置實務</h4><p>3~5公頃月工時 · 導入期 · 設備</p></div>
-<div class="card"><h4>柒、真實案例拆解</h4><p>黃政德紅龍果 · 林毓健芒果 · 養豬場</p></div>
-<div class="card"><h4>捌、風險與注意事項</h4><p>8大禁忌 · 保存 · 法規現況</p></div>
+<div class="card"><h4>壹、EM菌與光合菌概論</h4><p>起源、組成、功能定位、核心差異比較表</p></div>
+<div class="card"><h4>貳、光合菌培養SOP</h4><p>材料清單、擴培步驟、品質判別、保存</p></div>
+<div class="card"><h4>參、EM菌自製SOP</h4><p>活菌自產法、紅糖擴繁法、注意事項</p></div>
+<div class="card"><h4>肆、四大應用領域</h4><p>種植、水產、畜禽、堆肥、生物防蟲液</p></div>
+<div class="card"><h4>伍、成本量化分析</h4><p>自製vs市售、一分地成本、ROI &gt; 500%</p></div>
+<div class="card"><h4>陸、人力配置實務</h4><p>3~5公頃月工時、導入期、設備需求</p></div>
+<div class="card"><h4>柒、如何購買EM菌與光合菌</h4><p>實體通路、線上通路、價格參考、注意陷阱</p></div>
+<div class="card"><h4>捌、食工所免費課程</h4><p>課程資訊、報名方式、母菌取得管道</p></div>
+<div class="card"><h4>拾、真實案例拆解</h4><p>黃政德紅龍果、林毓健芒果、養豬場實證</p></div>
+            <div class="card"><h4>拾壹、常見失敗原因與排除</h4><p>8大失敗原因、自我檢查、解決對策</p></div>
+            <div class="card"><h4>拾貳、風險與注意事項</h4><p>8大禁忌、保存期限、法規現況</p></div>
 </div>
 </div>
 </div>
 
-<!-- ===== SLIDE 2: 概論 ===== -->
+<!-- ===== 2: 概論 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>壹、EM菌與光合菌概論</h2></div>
+<h2>壹、EM菌與光合菌概論</h2>
 <div class="two-col">
-<div>
 <div class="highlight">
 <h3>EM菌（Effective Microorganisms）</h3>
-<p style="font-size:.82rem">日本琉球大學 比嘉照夫教授研發</p>
-<p style="font-size:.82rem"><strong>5大類 10屬 56餘種</strong> 微生物複合</p>
-<p style="font-size:.82rem">光合菌群 + 乳酸菌群 + 酵母菌群 + 放線菌群 + 絲狀菌群</p>
-<p style="font-size:.82rem">定位：綜合型土壤改良、飼料添加、環境除臭、水質淨化</p>
+<p>日本琉球大學 比嘉照夫教授研發</p>
+<p><strong>5大類 10屬 56餘種</strong> 微生物複合</p>
+<p>光合菌群 + 乳酸菌群 + 酵母菌群 + 放線菌群 + 絲狀菌群</p>
+<p>定位：綜合型土壤改良、飼料添加、環境除臭、水質淨化</p>
 </div>
-</div>
-<div>
 <div class="highlight">
 <h3>光合菌（PSB）</h3>
-<p style="font-size:.82rem">紫色非硫菌——<em>沼澤紅假單胞菌</em></p>
-<p style="font-size:.82rem">厭氧光照 / 好氧黑暗皆可生長，以光為能源</p>
-<p style="font-size:.82rem">固氮溶磷、分解H₂S與NH₃-N、分泌植物生長因子</p>
-<p style="font-size:.82rem">台灣主推：財團法人食品工業發展研究所（食工所 FIRDI）</p>
+<p>紫色非硫菌——<em>沼澤紅假單胞菌</em></p>
+<p>厭氧光照 / 好氧黑暗皆可生長，以光為能源</p>
+<p>固氮溶磷、分解H₂S與NH₃-N、分泌植物生長因子</p>
+<p>台灣主推：財團法人食品工業發展研究所（食工所 FIRDI）</p>
 </div>
 </div>
-</div>
-<div class="box"><strong>核心策略：</strong>光合菌為主（根系強化）+ EM菌為輔（堆肥+除臭）</div>
+<div class="box"><strong>核心策略：</strong> 光合菌為主（根系強化） + EM菌為輔（堆肥+除臭）。EM菌是複合菌群（含光合菌），光合菌是單一純化菌群，成本更低、功能更專一。</div>
 </div>
 </div>
 
-<!-- ===== SLIDE 3: 核心差異表 ===== -->
+<!-- ===== 3: 差異表 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>壹、核心差異釐清</h2></div>
+<h2>壹、EM菌 vs 光合菌 — 完整比較表</h2>
 <table>
 <tr><th>比較項目</th><th>EM菌</th><th>光合菌</th></tr>
 <tr><td>取得難度</td><td>容易（市售多）</td><td>需向食工所或特定來源</td></tr>
@@ -135,349 +141,476 @@ pre{background:#1b4332;color:#d8f3dc;padding:8px 12px;border-radius:6px;overflow
 </div>
 </div>
 
-<!-- ===== SLIDE 4: 光合菌材料 ===== -->
+<!-- ===== 4: 光合菌材料 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>貳、光合菌培養SOP — 材料</h2></div>
-<p style="font-size:.85rem;color:#666">以食工所（FIRDI）技術為準，20公升產量</p>
+<h2>貳、光合菌培養SOP（食工所技術）</h2>
+<p style="color:#666;margin-bottom:10px;font-size:.9rem">以下為 20 公升標準產量的材料與成本</p>
 <table>
-<tr><th>項目</th><th>規格</th><th>數量</th><th>成本</th></tr>
-<tr><td>光合菌母菌</td><td>食工所菌種/原液</td><td>200ml</td><td>0~500元</td></tr>
-<tr><td>RO水/蒸餾水</td><td>20L/桶</td><td>1桶</td><td>20~35元</td></tr>
-<tr><td>光合菌培養基</td><td>粉末 200g</td><td>1包</td><td>90~150元</td></tr>
-<tr><td>透明PE桶</td><td>20L</td><td>1個*</td><td>50~80元</td></tr>
-<tr><td colspan="3"><strong>20L總成本（不含桶）</strong></td><td><strong>110~185元</strong></td></tr>
-<tr><td colspan="3"><strong>每公升成本</strong></td><td><strong>5.5~9.3元</strong></td></tr>
+<tr><th>項目</th><th>規格</th><th>數量</th><th>約略成本</th></tr>
+<tr><td>光合菌母菌</td><td>食工所菌種 / 原液</td><td>200ml</td><td>0~500 元</td></tr>
+<tr><td>RO水 / 蒸餾水</td><td>20L 桶</td><td>1 桶</td><td>20~35 元</td></tr>
+<tr><td>光合菌培養基</td><td>食工所配方粉末 200g</td><td>1 包</td><td>90~150 元</td></tr>
+<tr><td>透明 PE 桶</td><td>20L</td><td>1 個 *</td><td>50~80 元</td></tr>
+<tr><td colspan="3"><strong>20L 總成本（不含桶）</strong></td><td><strong>110~185 元</strong></td></tr>
+<tr><td colspan="3"><strong>每公升成本</strong></td><td><strong>5.5 ~ 9.3 元</strong></td></tr>
 </table>
-<p class="note">* 容器首次購置，後續重複使用。市售光合菌20L約2,500元，自製僅1/20價格。</p>
+<p class="note">* 容器為首次購置，後續可重複使用。市售光合菌 20L 約 2,500 元，自製僅約 1/20 價格。</p>
 </div>
 </div>
 
-<!-- ===== SLIDE 5: 光合菌步驟 ===== -->
+<!-- ===== 5: 光合菌步驟 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>貳、光合菌擴培步驟</h2></div>
-<div class="step"><span class="num">1</span><div><strong>準備</strong> — 20L透明桶＋75%酒精消毒 ＋ RO水（25~35°C）</div></div>
-<div class="step"><span class="num">2</span><div><strong>混合</strong> — 先加5L水 → 加培養基200g搖勻 → 加母菌200ml → 加滿至桶口（少留空氣）→ 旋緊</div></div>
-<div class="step"><span class="num">3</span><div><strong>培養</strong> — 陽光充足處（避免&gt;40°C）→ 每日搖晃1~2次 → 25~35°C</div></div>
-<div class="step"><span class="num">4</span><div><strong>觀察</strong> — 淡粉 → 粉紅 → 深紅 → 紫紅。夏季7~10天，冬季14~21天</div></div>
-<div class="step"><span class="num">5</span><div><strong>完成</strong> — 暗紅/紫紅色，醬油香或烏梅香（非臭味）→ 陰涼密封保存3~6個月</div></div>
-<div class="box"><strong>品質判別：</strong> ✅ 顏色暗紅/紫紅 · 醬油香 · pH 5.5~6.5<br>❌ 灰黑/綠色 · 惡臭/霉味 · 雜菌污染，重新培養</div>
+<h2>貳、光合菌擴培步驟</h2>
+<div class="step"><span class="num">1</span><div><strong>準備</strong> — 20L 透明桶 + 75% 酒精消毒 + RO 水（水溫 25~35°C）</div></div>
+<div class="step"><span class="num">2</span><div><strong>混合</strong> — 先加 5L 水 → 加培養基 200g 搖勻 → 加母菌 200ml → 加滿至桶口（少留空氣）→ 旋緊瓶蓋</div></div>
+<div class="step"><span class="num">3</span><div><strong>培養</strong> — 陽光充足處（避免超過 40°C）→ 每日搖晃 1~2 次 → 維持 25~35°C</div></div>
+<div class="step"><span class="num">4</span><div><strong>觀察顏色變化</strong> — 淡粉 → 粉紅 → 深紅 → 紫紅。夏季 7~10 天，冬季 14~21 天</div></div>
+<div class="step"><span class="num">5</span><div><strong>完成判別</strong> — 暗紅 / 紫紅色，淡淡的醬油香或烏梅香（不是臭味）→ 陰涼處密封保存，可放 3~6 個月</div></div>
+<div class="box"><strong>品質判別：</strong><br>✅ 成功：暗紅/紫紅色 · 醬油香 · pH 5.5~6.5 · 少許沉澱<br>❌ 失敗：灰黑/綠色/白色混濁 · 惡臭或霉味 → 雜菌污染，全部倒掉重新培養</div>
 </div>
 </div>
 
-<!-- ===== SLIDE 6: EM菌SOP ===== -->
+<!-- ===== 6: EM菌SOP ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>參、EM菌自製SOP</h2></div>
+<h2>參、EM菌自製SOP</h2>
 <div class="two-col">
-<div>
-<h3>EM活菌自產法（40kg）</h3>
+<div class="highlight">
+<h3>EM活菌自產法（40公斤）</h3>
 <table>
 <tr><th>材料</th><th>數量</th><th>成本</th></tr>
-<tr><td>紅糖</td><td>2~4kg</td><td>80~160元</td></tr>
-<tr><td>水（除氯）</td><td>40L</td><td>0元</td></tr>
-<tr><td>EM自產劑</td><td>500g</td><td>150~250元</td></tr>
-<tr><td>50L桶（首次）</td><td>1個</td><td>200~300元</td></tr>
-<tr><td><strong>每公斤成本</strong></td><td></td><td><strong>5.8~10.3元</strong></td></tr>
+<tr><td>紅糖</td><td>2~4kg</td><td>80~160 元</td></tr>
+<tr><td>水（除氯自來水）</td><td>40L</td><td>0 元</td></tr>
+<tr><td>EM 活菌自產劑</td><td>500g</td><td>150~250 元</td></tr>
+<tr><td>50L 塑膠桶（首次）</td><td>1 個</td><td>200~300 元</td></tr>
+<tr><td><strong>每公斤成本（不含桶）</strong></td><td></td><td><strong>5.8~10.3 元</strong></td></tr>
 </table>
-<p class="note">市售1L EM菌 15~30元，自製僅1~3元/L</p>
+<p class="note">市售 1L EM 菌 15~30 元，自製僅 1~3 元/L</p>
 </div>
-<div>
+<div class="highlight">
 <h3>操作步驟</h3>
-<div class="step"><span class="num">①</span><div>桶中加35°C溫水40L</div></div>
-<div class="step"><span class="num">②</span><div>加紅糖2~4kg攪拌溶解</div></div>
-<div class="step"><span class="num">③</span><div>加EM自產劑500g攪勻</div></div>
-<div class="step"><span class="num">④</span><div>密封25~35°C培養</div></div>
-<div class="step"><span class="num">⑤</span><div>每日開蓋放氣+攪拌1~2次</div></div>
-<div class="step"><span class="num">⑥</span><div>約7天完成，≥100億CFU/ml</div></div>
+<div class="step"><span class="num">①</span><div>桶中加 35°C 溫水 40L</div></div>
+<div class="step"><span class="num">②</span><div>加紅糖 2~4kg 攪拌溶解</div></div>
+<div class="step"><span class="num">③</span><div>加 EM 自產劑 500g 攪勻</div></div>
+<div class="step"><span class="num">④</span><div>密封 25~35°C 培養</div></div>
+<div class="step"><span class="num">⑤</span><div>每日開蓋放氣 + 攪拌 1~2 次</div></div>
+<div class="step"><span class="num">⑥</span><div>約 7 天完成，活菌數 ≥ 100 億 CFU/ml</div></div>
 </div>
 </div>
-<div class="box"><strong>⚠ 紅糖擴繁法：</strong> EM菌原液1L+紅糖1kg+水20L→5~7天。菌數逐代衰減，最多3代即需重購母菌</div>
+<div class="box"><strong>⚠ 紅糖擴繁法（簡易）：</strong> EM 原液 1L + 紅糖 1kg + 水 20L → 密封 5~7 天。菌數每代衰減，最多擴 3 代就要重新買母菌。<br>乳酸菌在常溫液體中難以長時間存活，第 2 個月活菌下降約 30%，第 3 個月下降約 50%。</div>
 </div>
 </div>
 
-<!-- ===== SLIDE 7: 種植應用 ===== -->
+<!-- ===== 7: 種植應用 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>肆、種植業應用</h2></div>
+<h2>肆、種植業應用 — 土壤改良與葉面噴施</h2>
 <table>
 <tr><th>項目</th><th>EM菌</th><th>光合菌</th></tr>
-<tr><td>整地前土壤</td><td>500倍，200~300L/分地</td><td>300倍，150~200L/分地</td></tr>
-<tr><td>浸種</td><td>100~200倍，15~30分</td><td>100~200倍，15~30分</td></tr>
-<tr><td>定植澆根</td><td>200~300倍，200~500ml/株</td><td>300~500倍，300~500ml/株</td></tr>
-<tr><td>葉菜噴施</td><td>300~500倍，7~10天/次</td><td>300~500倍，7~10天/次</td></tr>
-<tr><td>果樹噴施</td><td>200~300倍，10~14天/次</td><td>200~300倍，避開花期</td></tr>
-<tr><td>根莖類</td><td>500~800倍，僅幼苗</td><td><span class="tag red">膨大期禁用</span></td></tr>
+<tr><td>整地前土壤灌注</td><td>500 倍，200~300L/分地</td><td>300 倍，150~200L/分地</td></tr>
+<tr><td>浸種</td><td>100~200 倍，浸泡 15~30 分鐘</td><td>100~200 倍，浸泡 15~30 分鐘</td></tr>
+<tr><td>定植澆根</td><td>200~300 倍，200~500ml/株</td><td>300~500 倍，300~500ml/株</td></tr>
+<tr><td>葉菜類噴施</td><td>300~500 倍，7~10 天一次</td><td>300~500 倍，7~10 天一次</td></tr>
+<tr><td>果樹噴施</td><td>200~300 倍，10~14 天一次</td><td>200~300 倍，<span class="tag red">避開盛花期</span></td></tr>
+<tr><td>根莖類作物</td><td>500~800 倍，僅幼苗期</td><td><span class="tag red">膨大期絕對禁用</span></td></tr>
 </table>
-<div class="box"><strong>⚠ 開花期：</strong> 光合菌會刺激營養生長（長葉不長花），盛花期必須暫停。開花前2周停止，謝花後恢復。EM菌可低濃度（500~800倍）使用。</div>
+<div class="box"><strong>⚠ 開花期關鍵：</strong> 光合菌會刺激營養生長（一直長葉子不開花），盛花期必須暫停。建議開花前 2 週停止使用，謝花後再恢復。EM 菌在花期可用低濃度（500~800 倍）。</div>
 </div>
 </div>
 
-<!-- ===== SLIDE 8: 水產畜禽 ===== -->
+<!-- ===== 8: 水產畜禽 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>肆、水產與畜禽養殖</h2></div>
+<h2>肆、水產與畜禽養殖應用</h2>
 <div class="two-col">
-<div>
+<div class="highlight">
 <h3>水產養殖</h3>
 <table>
 <tr><th>方式</th><th>EM菌</th><th>光合菌</th></tr>
-<tr><td>全池潑灑</td><td>1~2ppm/周</td><td>5~10ppm/每日</td></tr>
-<tr><td>拌料</td><td>5~10ml/kg飼料</td><td>10~20ml/kg飼料</td></tr>
+<tr><td>全池潑灑</td><td>1~2ppm，每周一次</td><td>5~10ppm，每日或隔日</td></tr>
+<tr><td>拌料</td><td>5~10ml/kg 飼料</td><td>10~20ml/kg 飼料</td></tr>
 </table>
-<p style="font-size:.78rem">光合菌降氨氮效果優於EM菌，菌體含60%以上蛋白質可做餌料</p>
+<p>光合菌在分解氨氮（NH₃-N）方面效果優於 EM 菌，菌體本身含 60% 以上蛋白質，可作為餌料生物營養源，也能透過光合作用提高溶氧。</p>
 </div>
-<div>
+<div class="highlight">
 <h3>畜禽養殖（EM菌）</h3>
-<p style="font-size:.8rem">飲水：500~1000倍連續飲用</p>
-<p style="font-size:.8rem">飼料發酵：EM菌2~5L + 糖2kg + 水100L/噸</p>
-<p style="font-size:.8rem">噴霧除臭：100~200倍，每周2~3次</p>
-<p style="font-size:.8rem">糞便堆肥：EM菌5~10L + 米糠20kg/噸</p>
+<table>
+<tr><th>用法</th><th>用量</th></tr>
+<tr><td>飲水添加</td><td>500~1000 倍稀釋，連續飲用</td></tr>
+<tr><td>飼料發酵</td><td>EM 菌 2~5L + 糖 2kg + 水 100L/每噸飼料，發酵 3~7 天</td></tr>
+<tr><td>噴霧除臭</td><td>稀釋 100~200 倍，每周 2~3 次噴灑畜舍</td></tr>
+<tr><td>糞便堆肥</td><td>EM 菌 5~10L + 米糠 20kg/每噸，堆肥 15~30 天</td></tr>
+</table>
 </div>
 </div>
-<div class="box"><strong>EM菌養豬實證：</strong> 料肉比↓15% · 氨氣↓60~80% · 死亡率↓30~50% · 獸藥費↓40~60%</div>
+<div class="box"><strong>EM 菌養豬實證數據：</strong> 料肉比 ↓ 15% ｜ 畜舍氨氣濃度 ↓ 60~80% ｜ 豬隻死亡率 ↓ 30~50% ｜ 獸藥費用 ↓ 40~60%</div>
 </div>
 </div>
 
-<!-- ===== SLIDE 9: 堆肥+防蟲 ===== -->
+<!-- ===== 9: 堆肥+防蟲 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>肆、堆肥製作與生物防蟲液</h2></div>
+<h2>肆、堆肥製作與生物防蟲液</h2>
 <div class="two-col">
-<div>
+<div class="highlight">
 <h3>EM菌堆肥</h3>
-<div class="step"><span class="num">1</span><div>有機物料1噸 + EM菌5~10L + 紅糖5kg</div></div>
-<div class="step"><span class="num">2</span><div>調整水分至50~60%（一捏成團、一觸即散）</div></div>
-<div class="step"><span class="num">3</span><div>堆置1~1.5m高，覆蓋帆布</div></div>
-<div class="step"><span class="num">4</span><div>7天翻堆→之後每3~5天翻一次</div></div>
-<div class="step"><span class="num">5</span><div>夏季20~30天／冬季40~60天完全腐熟</div></div>
-<p style="font-size:.78rem">💡 時間縮短50~60% · 臭味減少80~90%</p>
+<div class="step"><span class="num">1</span><div>有機物料 1 噸 + EM 菌 5~10L + 紅糖 5kg</div></div>
+<div class="step"><span class="num">2</span><div>調整水分至 50~60%（一捏成團、一觸即散）</div></div>
+<div class="step"><span class="num">3</span><div>堆置 1~1.5m 高，覆蓋帆布保溫</div></div>
+<div class="step"><span class="num">4</span><div>7 天後第一次翻堆，之後每 3~5 天翻一次</div></div>
+<div class="step"><span class="num">5</span><div>夏季 20~30 天、冬季 40~60 天完全腐熟</div></div>
+<p><strong>對比傳統堆肥：</strong> 時間縮短 50~60% · 臭味減少 80~90% · 養分保留率提升</p>
 </div>
-<div>
+<div class="highlight">
 <h3>生物防蟲液</h3>
-<p style="font-size:.8rem"><strong>配方：</strong></p>
-<p style="font-size:.8rem">EM菌1L + 紅糖1L + 醋精1L + 白酒(52°)1L + 辣椒粉1L + 水10L</p>
-<div class="step"><span class="num">1</span><div>混合密封發酵15天（25°C）</div></div>
-<div class="step"><span class="num">2</span><div>前3天每日開蓋放氣，之後每3天一次</div></div>
-<div class="step"><span class="num">3</span><div>完成時酸甜刺激性醋味</div></div>
-<div class="step"><span class="num">4</span><div>使用稀釋200~1000倍噴灑葉面</div></div>
-<p style="font-size:.78rem">👍 對蚜蟲、青蟲、部分真菌病害有效</p>
+<p><strong>配方：</strong> EM 菌 1L + 紅糖 1L + 醋精 1L + 白酒(52°) 1L + 辣椒粉 1L + 水 10L</p>
+<div class="step"><span class="num">1</span><div>全部混合，密封發酵 15 天（維持 25°C）</div></div>
+<div class="step"><span class="num">2</span><div>前 3 天每天開蓋放氣，之後每 3 天一次</div></div>
+<div class="step"><span class="num">3</span><div>完成時有酸甜刺激性醋味，密封可保存 3 個月</div></div>
+<div class="step"><span class="num">4</span><div>使用時稀釋 200~1000 倍，噴灑葉片正反面</div></div>
+<p>對蚜蟲、青蟲、部分真菌病害有防治效果，無毒無殘留。</p>
 </div>
 </div>
 </div>
 </div>
 
-<!-- ===== SLIDE 10: 成本表 ===== -->
+<!-- ===== 10: 成本分析 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>伍、成本量化分析</h2></div>
-<h3>自製 vs 市售</h3>
+<h2>伍、成本量化分析</h2>
+<h3>自製 vs 市售價格比較</h3>
 <table>
-<tr><th>項目</th><th>市售</th><th>自製</th><th>節省</th></tr>
-<tr><td>EM菌液 1L</td><td>15~30元</td><td>1~3元</td><td>90~93%</td></tr>
-<tr><td>光合菌液 1L</td><td>100~130元</td><td>5~10元</td><td>90~95%</td></tr>
-<tr><td>光合菌 20L</td><td>2,500元</td><td>110~185元</td><td>92~96%</td></tr>
+<tr><th>項目</th><th>市售價格</th><th>自製價格</th><th>節省比例</th></tr>
+<tr><td>EM 菌液（1L）</td><td>15~30 元</td><td>1~3 元</td><td>90~93%</td></tr>
+<tr><td>光合菌液（1L）</td><td>100~130 元</td><td>5~10 元</td><td>90~95%</td></tr>
+<tr><td>光合菌（20L）</td><td>2,500 元</td><td>110~185 元</td><td>92~96%</td></tr>
 </table>
-<h3>一分地（0.1公頃）年度菌液成本</h3>
+<h3>一分地（0.1公頃）年度菌液成本估算</h3>
 <table>
-<tr><th>項目</th><th>年用量</th><th>自製</th><th>購買</th></tr>
-<tr><td>EM菌</td><td>100~200L</td><td>110~660元</td><td>1,500~6,000元</td></tr>
-<tr><td>光合菌</td><td>100~200L</td><td>550~1,850元</td><td>10,000~26,000元</td></tr>
-<tr><td>合計</td><td></td><td>660~2,510元</td><td>11,500~32,000元</td></tr>
+<tr><th>項目</th><th>年用量</th><th>自製成本</th><th>購買成本</th></tr>
+<tr><td>EM 菌</td><td>100~200L</td><td>110~660 元</td><td>1,500~6,000 元</td></tr>
+<tr><td>光合菌</td><td>100~200L</td><td>550~1,850 元</td><td>10,000~26,000 元</td></tr>
+<tr><td><strong>合計</strong></td><td></td><td><strong>660~2,510 元</strong></td><td><strong>11,500~32,000 元</strong></td></tr>
 </table>
 </div>
 </div>
 
-<!-- ===== SLIDE 11: ROI ===== -->
+<!-- ===== 11: ROI ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>伍、投資回報率</h2></div>
+<h2>伍、投資回報率（ROI）</h2>
 <div class="two-col">
-<div>
 <div class="highlight">
-<h3>真實案例：台南紅龍果</h3>
-<p style="font-size:.82rem"><strong>黃政德（4分地）</strong></p>
-<p style="font-size:.82rem">使用光合菌前年肥料費：<strong>60,000元</strong></p>
-<p style="font-size:.82rem">使用光合菌後年肥料費：<strong>12,000元</strong></p>
-<p style="font-size:.82rem">每年節省 <strong>48,000元</strong></p>
-<p style="font-size:.82rem">材料：第一年25,000元→第三年後3,000元/年</p>
+<h3>真實案例：台南紅龍果 — 黃政德（4 分地）</h3>
+<p>使用光合菌前：年肥料費 <strong>60,000 元</strong></p>
+<p>使用光合菌後：年肥料費 <strong>12,000 元</strong></p>
+<p><strong>每年節省 48,000 元</strong>（每分地省 12,000 元）</p>
+<p>材料成本：第一年 25,000 元（摸索期）→ 第二年 7,500 元 → 第三年後 3,000 元/年</p>
 </div>
-</div>
-<div>
 <div class="highlight">
-<h3>ROI 計算</h3>
-<p style="font-size:.82rem"><strong>首次投入：</strong>700~1,500元</p>
-<p style="font-size:.82rem"><strong>年度經常：</strong>4,000~8,000元</p>
-<p style="font-size:.82rem"><strong>年度節省：</strong>40,000~80,000元</p>
-<p style="font-size:1.8rem;font-weight:800;color:#e76f51;text-align:center">ROI &gt; 500%</p>
-<p style="font-size:.82rem;text-align:center">每投入1元，回報5元以上</p>
-</div>
+<h3>ROI 試算</h3>
+<p style="font-size:1rem;margin:4px 0"><strong>首次投入成本：</strong>700~1,500 元</p>
+<p style="font-size:1rem;margin:4px 0"><strong>年度經常成本：</strong>4,000~8,000 元</p>
+<p style="font-size:1rem;margin:4px 0"><strong>年度節省效益：</strong></p>
+<p style="font-size:.9rem;color:#495057">肥料減少 30,000~50,000 元<br>農藥減少 5,000~15,000 元<br>產量提升 10~30%</p>
+<p style="font-size:2rem;font-weight:800;color:#e63946;text-align:center;margin:10px 0">ROI &gt; 500% / 年</p>
+<p style="text-align:center;color:#666">每投入 1 元，每年回報 5 元以上</p>
 </div>
 </div>
 </div>
 </div>
 
-<!-- ===== SLIDE 12: 人力 ===== -->
+<!-- ===== 12: 人力 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>陸、人力配置實務（3~5公頃）</h2></div>
+<h2>陸、人力配置（3~5 公頃農場）</h2>
 <table>
-<tr><th>工作</th><th>頻率</th><th>月工時</th></tr>
-<tr><td>菌液培養</td><td>月1~2次</td><td>2~4h</td></tr>
-<tr><td>品質檢查</td><td>周1次</td><td>2h</td></tr>
-<tr><td>稀釋調配</td><td>每次使用前</td><td>2~4h</td></tr>
-<tr><td>葉面噴施</td><td>周1次</td><td>8~16h</td></tr>
-<tr><td>灌根澆灌</td><td>每2周1次</td><td>2~4h</td></tr>
-<tr><td>堆肥翻堆</td><td>月1~2次</td><td>4~8h</td></tr>
-<tr><td>畜舍噴霧</td><td>周2次</td><td>4~8h</td></tr>
-<tr><td>記錄監測</td><td>每日</td><td>15h</td></tr>
-<tr><td><strong>合計</strong></td><td></td><td><strong>40~60h</strong></td></tr>
+<tr><th>工作項目</th><th>頻率</th><th>每次工時</th><th>月工時</th></tr>
+<tr><td>菌液培養</td><td>月 1~2 次</td><td>1~2 小時</td><td>2~4 小時</td></tr>
+<tr><td>品質檢查</td><td>每周 1 次</td><td>0.5 小時</td><td>2 小時</td></tr>
+<tr><td>稀釋調配</td><td>每次使用前</td><td>0.5 小時</td><td>2~4 小時</td></tr>
+<tr><td>葉面噴施</td><td>每周 1 次</td><td>2~4 小時/公頃</td><td>8~16 小時</td></tr>
+<tr><td>灌根澆灌</td><td>每 2 周 1 次</td><td>1~2 小時/公頃</td><td>2~4 小時</td></tr>
+<tr><td>堆肥翻堆</td><td>月 1~2 次</td><td>2~4 小時</td><td>4~8 小時</td></tr>
+<tr><td>畜舍噴霧</td><td>每周 2 次</td><td>0.5~1 小時</td><td>4~8 小時</td></tr>
+<tr><td>記錄監測</td><td>每日</td><td>0.5 小時</td><td>15 小時</td></tr>
+<tr><td><strong>合計</strong></td><td></td><td></td><td><strong>40~60 小時</strong></td></tr>
 </table>
-<p style="font-size:.8rem">分散於3~4人，每人月增10~15h。導入期前3個月需額外40h。</p>
+<p>分散於 3~4 人，每人每月增加 10~15 小時工作量。導入期前 3 個月需額外投入約 40 小時。</p>
 </div>
 </div>
 
-<!-- ===== SLIDE 13: 設備 ===== -->
+<!-- ===== 13: 設備 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>陸、設備需求</h2></div>
+<h2>陸、設備需求</h2>
 <table>
 <tr><th>設備</th><th>用途</th><th>預估成本</th></tr>
-<tr><td>HDPE桶 50~200L</td><td>EM菌培養</td><td>200~800元/個</td></tr>
-<tr><td>20L透明桶</td><td>光合菌培養</td><td>50~100元/個</td></tr>
-<tr><td>量筒/量杯</td><td>精確配比</td><td>100~200元</td></tr>
-<tr><td>pH計/試紙</td><td>品質檢測</td><td>200~1,000元</td></tr>
-<tr><td>溫度計</td><td>水溫監控</td><td>50~150元</td></tr>
-<tr><td>動力噴霧機</td><td>大面積噴施</td><td>5,000~20,000元</td></tr>
-<tr><td>背負式噴霧器</td><td>小面積噴施</td><td>1,000~3,000元</td></tr>
+<tr><td>HDPE 桶 50~200L</td><td>EM 菌培養</td><td>200~800 元/個</td></tr>
+<tr><td>20L 透明桶</td><td>光合菌培養</td><td>50~100 元/個</td></tr>
+<tr><td>量筒 / 量杯</td><td>精確配比</td><td>100~200 元</td></tr>
+<tr><td>pH 計 / 試紙</td><td>品質檢測</td><td>200~1,000 元</td></tr>
+<tr><td>溫度計</td><td>水溫監控</td><td>50~150 元</td></tr>
+<tr><td>動力噴霧機</td><td>大面積葉面噴施</td><td>5,000~20,000 元</td></tr>
+<tr><td>背負式噴霧器</td><td>小面積精準噴施</td><td>1,000~3,000 元</td></tr>
+<tr><td>顯微鏡 1000x（選配）</td><td>菌相檢查</td><td>3,000~8,000 元</td></tr>
 </table>
-<p class="note">首次設備總投入約7,000~25,000元（含噴霧機）</p>
+<p class="note">首次設備總投入約 7,000~25,000 元（含動力噴霧機）。</p>
 </div>
 </div>
 
-<!-- ===== SLIDE 14: 案例1 ===== -->
+<!-- ===== 14: 如何購買 EM菌 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>柒、真實案例一 — 黃政德紅龍果</h2></div>
+<h2>柒、如何購買 EM 菌</h2>
+<div class="two-col">
 <div class="highlight">
-<p style="font-size:.82rem"><strong>台南善化紅龍果產銷班班長 · 4分地</strong></p>
-<p style="font-size:.82rem">2016年導入光合菌。試驗：光合菌無肥 vs 慣行施肥</p>
-</div>
+<h3>線上購買管道</h3>
 <table>
-<tr><th>指標</th><th>光合菌組</th><th>對照組</th></tr>
-<tr><td>單果重</td><td>2公斤</td><td>0.8~1.2公斤</td></tr>
-<tr><td>產期</td><td>延長至冬季</td><td>正常季節</td></tr>
-<tr><td>年肥料費</td><td>12,000元</td><td>60,000元</td></tr>
-<tr><td>肥料用量</td><td>1/5</td><td>1</td></tr>
+<tr><th>平台</th><th>搜尋關鍵字</th><th>參考價格</th></tr>
+<tr><td>蝦皮購物</td><td>「EM菌」、「EM菌種」</td><td>140~450 元/L</td></tr>
+<tr><td>露天拍賣</td><td>「EM益生菌」</td><td>150~500 元/L</td></tr>
+<tr><td>PChome /  momo</td><td>「EM Environment」</td><td>200~600 元/L</td></tr>
+<tr><td>BigGo 比價</td><td>比價所有平台</td><td>即時價格</td></tr>
 </table>
-<div class="box"><strong>教訓：</strong>根莖類膨大期禁止使用；開花前最佳；光合菌分解養分非創造養分，長期需補肥</div>
+<p class="note">⚠ 注意：液體 EM 菌有保存期限問題，出廠超過 2 個月活菌數大幅下降。購買時務必確認製造日期。</p>
+</div>
+<div class="highlight">
+<h3>實體購買管道</h3>
+<ul style="font-size:.88rem;padding-left:18px;margin:6px 0">
+<li><strong>各地農會</strong> — 部分農會供銷部有販售</li>
+<li><strong>農業資材行</strong> — 鄉鎮級農業資材行通常有進貨</li>
+<li><strong>水族館</strong> — 水族用 EM 菌（濃度較低但可用）</li>
+<li><strong>農藥行</strong> — 部分有機資材專區</li>
+</ul>
+<h3 style="margin-top:16px">價格參考（市售成品）</h3>
+<table>
+<tr><th>包裝</th><th>價格範圍</th></tr>
+<tr><td>1L 瓶裝</td><td>150~300 元</td></tr>
+<tr><td>5L 桶裝</td><td>400~800 元</td></tr>
+<tr><td>20L 桶裝</td><td>1,200~3,000 元</td></tr>
+<tr><td>EM 菌種粉（自產劑）500g</td><td>150~250 元（可產 40L）</td></tr>
+</table>
+</div>
+</div>
+<div class="box"><strong>💡 省錢結論：</strong> 買 EM 活菌自產劑（500g）回來自己加紅糖+水，成本僅市售的 1/10。第一次買桶子+自產劑，總花費不到 500 元，之後每次培養僅花糖錢（約 100 元）。</div>
 </div>
 </div>
 
-<!-- ===== SLIDE 15: 案例2 ===== -->
+<!-- ===== 15: 如何購買 光合菌 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>柒、真實案例二 — 林毓健芒果</h2></div>
+<h2>柒、如何購買光合菌</h2>
+<div class="two-col">
 <div class="highlight">
-<p style="font-size:.82rem"><strong>屏東芒果農 · 2018年導入食工所光合菌</strong></p>
-<p style="font-size:.82rem">以往市售20L=2,500元；自製成本不到200元/20L</p>
+<h3>線上購買管道</h3>
+<table>
+<tr><th>平台 / 賣家</th><th>內容</th><th>價格</th></tr>
+<tr><td>蝦皮搜尋「光合菌」</td><td>20L 桶裝 / 1L 瓶裝</td><td>150~500 元</td></tr>
+<tr><td>仲達生物科技</td><td>自行培養組合</td><td>約 500~1,000 元</td></tr>
+<tr><td>蕭博士光合菌</td><td>培養基 90 元/包（可產 15L）</td><td>另需自備母菌</td></tr>
+<tr><td>水產試驗所</td><td>直接電話洽詢研究員</td><td>技術轉移 / 免費</td></tr>
+</table>
+<p class="note">⚠ 台大劉啟德教授研究指出：市售光合菌產品有部分完全不含光合菌，或被雜菌嚴重污染。購買時要小心。</p>
+</div>
+<div class="highlight">
+<h3>如何判斷光合菌好壞</h3>
+<table>
+<tr><th>判別方式</th><th>好菌</th><th>壞菌</th></tr>
+<tr><td>顏色</td><td>暗紅 / 紫紅色</td><td>灰黑 / 綠色混濁</td></tr>
+<tr><td>氣味</td><td>醬油香或烏梅味</td><td>惡臭、酸敗</td></tr>
+<tr><td>來源</td><td>食工所母菌擴培</td><td>來路不明、號稱萬能</td></tr>
+</table>
+<h3 style="margin-top:16px">最佳取得管道</h3>
+<p><strong>食品工業發展研究所（FIRDI）</strong></p>
+<p>參加免費光合菌訓練課程 → 課堂上提供母菌 + 培養基配方 → 自己回去擴培</p>
+<p>這是成本最低、品質最可靠的方式。</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== 16: 食工所課程 ===== -->
+<div class="slide">
+<div class="slide-content">
+<h2>捌、食工所免費光合菌課程資訊</h2>
+<div class="box" style="border-left-color:#e63946;background:#fff5f5">
+<strong>⚠ 重要：以下資訊為 114~115 年度（2025~2026 年）的實際開課資料，年度課程可能已結束，請追蹤食工所 FB 獲取最新課程表。</strong>
 </div>
 <div class="two-col">
-<div>
+<div class="highlight">
+<h3>課程基本資訊</h3>
+<table>
+<tr><th>項目</th><th>內容</th></tr>
+<tr><td>主辦單位</td><td>財團法人食品工業發展研究所（FIRDI）</td></tr>
+<tr><td>補助單位</td><td>農業部農糧署</td></tr>
+<tr><td>課程名稱</td><td>農業光合菌訓練班</td></tr>
+<tr><td>費用</td><td><strong>免費</strong>（農糧署全額補助）</td></tr>
+<tr><td>對象</td><td>農民、青農、有興趣者</td></tr>
+<tr><td>課程內容</td><td>光合菌簡介、培養技術、田間應用、實作教學</td></tr>
+<tr><td>現場提供</td><td>光合菌母菌、培養基配方、操作教學</td></tr>
+</table>
+</div>
+<div class="highlight">
+<h3>追蹤最新課程方式</h3>
+<table>
+<tr><th>管道</th><th>說明</th></tr>
+<tr><td>食工所 FB 粉絲專頁</td><td>搜尋「財團法人食品工業發展研究所」或 @firdi1965</td></tr>
+<tr><td>食工所官網</td><td>www.firdi.org.tw → 產業學院</td></tr>
+<tr><td>各地農會公告</td><td>台南新市農會、雲林豐泰文教基金會等協辦</td></tr>
+<tr><td>有機農業全球資訊網</td><td>info.organic.org.tw 活動公告</td></tr>
+<tr><td>上下游新聞</td><td>www.newsmarket.com.tw 農情報導</td></tr>
+</table>
+</div>
+</div>
+<div class="box"><strong>💡 實際開課紀錄：</strong><br>• 114年度（2025年3月）宜蘭場 — 花改場蘭陽分場<br>• 114年度（2025年6月）雲林場 — 豐泰文教基金會<br>• 114年度（2025年5月）台南新市農會 — 光合菌推廣訓練班<br>• 113年度（2024年6~7月）多場次巡迴<br><br>**每年約 3~7 月開課**，可現在就追蹤食工所 FB，明年課程開始時立刻報名。</div>
+</div>
+</div>
+
+<!-- ===== 17: 母菌取得替代方案 ===== -->
+<div class="slide">
+<div class="slide-content">
+<h2>捌、母菌取得替代方案</h2>
+<div class="highlight">
+<h3>如果等不及年度課程，還有以下管道</h3>
+<table>
+<tr><th>管道</th><th>聯絡方式</th><th>說明</th></tr>
+<tr><td>食工所 BCRC 生資中心</td><td>電話：(03)522-3191</td><td>直接打電話詢問是否可購買光合菌菌種。食工所生物資源保存及研究中心（BCRC）有保存多種光合菌菌株。</td></tr>
+<tr><td>水產試驗所</td><td>海水養殖研究中心<br>(06) 788-0461</td><td>可電話洽詢研究員是否有開放菌種購買或技術轉移。水試所在光合菌應用方面有豐富經驗。</td></tr>
+<tr><td>已上過課的農友</td><td>各地產銷班</td><td>詢問附近產銷班是否有農友已上過食工所課程，可向他們索取少量母菌開始培養。</td></tr>
+<tr><td>購買市售光合菌</td><td>蝦皮/PChome</td><td>購買市售光合菌液作為第一次的「母菌」來擴培。雖然菌的純度不如食工所，但成本低，可以試試看。</td></tr>
+</table>
+</div>
+<div class="box"><strong>🍯 蜂蜜 trick：</strong> 如果只是想「試試看」，可以先去蝦皮買一瓶 150 元的光合菌液（20L 約 150 元那種），用它當母菌 + 培養基 + RO 水擴培。雖然不是食工所純菌，但成本極低，可以先感受效果。之後再參加食工所課程拿正版母菌。</div>
+</div>
+</div>
+
+<!-- ===== 18: 案例1 ===== -->
+<div class="slide">
+<div class="slide-content">
+<h2>拾、真實案例一 — 黃政德（台南紅龍果）</h2>
+<div class="highlight">
+<p><strong>台南市善化區紅龍果產銷班第三班班長 · 4 分地</strong></p>
+<p>2016 年導入光合菌。試驗設計：一邊使用光合菌但不施肥 vs 另一邊慣行施肥</p>
+</div>
+<table>
+<tr><th>指標</th><th>使用光合菌</th><th>對照組（慣行）</th></tr>
+<tr><td>單顆果實重量</td><td>2 公斤</td><td>0.8~1.2 公斤</td></tr>
+<tr><td>產期</td><td>延長至冬季仍可產出</td><td>正常季節</td></tr>
+<tr><td>年肥料費</td><td>12,000 元</td><td>60,000 元</td></tr>
+<tr><td>肥料用量比例</td><td>1/5</td><td>1</td></tr>
+</table>
+<div class="box"><strong>教訓總結：</strong><br>① 根莖類作物膨大期禁止使用（會長鬚根變格外品）<br>② 最佳使用時機是開花前（促進根系+花芽分化）<br>③ 光合菌是分解養分，不是創造養分，長期使用要補基礎肥料<br>④ 材料成本：第一年 25,000 元 → 第二年起降至 3,000~7,500 元/年</div>
+</div>
+</div>
+
+<!-- ===== 19: 案例2 ===== -->
+<div class="slide">
+<div class="slide-content">
+<h2>拾、真實案例二 — 林毓健（屏東芒果）</h2>
+<div class="highlight">
+<p><strong>屏東芒果農 · 2018 年參加食工所光合菌課程後導入</strong></p>
+<p>導入前：市售光合菌 20L = 2,500 元。導入後：自製成本不到 200 元/20L。</p>
+</div>
+<div class="two-col">
+<div class="highlight">
 <h3>操作方式</h3>
-<div class="step"><span class="num">1</span><div>稀釋300~500倍，月2次灌根</div></div>
-<div class="step"><span class="num">2</span><div>避開開花期（否則長葉不開花）</div></div>
-<div class="step"><span class="num">3</span><div>可使用肥料，<span class="tag red">不可混殺菌劑</span></div></div>
+<div class="step"><span class="num">1</span><div>稀釋 300~500 倍，每月 2 次灌根</div></div>
+<div class="step"><span class="num">2</span><div>避開開花期（否則一直長葉子不開花）</div></div>
+<div class="step"><span class="num">3</span><div>可搭配肥料，但 <span class="tag red">不可混用殺菌劑</span></div></div>
 </div>
-<div>
+<div class="highlight">
 <h3>成效</h3>
-<div class="step"><span class="num">✓</span><div>芒果樹勢健康、葉片旺盛</div></div>
-<div class="step"><span class="num">✓</span><div>連續3年效果累積</div></div>
-<div class="step"><span class="num">💬</span><div>「市售光合菌很混亂，不敢亂買」</div></div>
+<div class="step"><span class="num" style="background:#2b8a3e">✓</span><div>芒果樹勢明顯健康、葉片生長旺盛</div></div>
+<div class="step"><span class="num" style="background:#2b8a3e">✓</span><div>連續使用 3 年，效果持續累積</div></div>
+<div class="step"><span class="num" style="background:#2b8a3e">💬</span><div>「市售光合菌很混亂，我不敢亂買。」</div></div>
 </div>
 </div>
 </div>
 </div>
 
-<!-- ===== SLIDE 16: 案例3+4 ===== -->
+<!-- ===== 20: 案例3 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>柒、案例三+四 — 養豬場 & 屏東縣府</h2></div>
+<h2>拾、真實案例三+四 — 養豬場 & 屏東縣政府</h2>
 <div class="two-col">
-<div>
-<h3>EM菌養豬實證</h3>
+<div class="highlight">
+<h3>EM菌養豬實證（中國）</h3>
 <table>
-<tr><th>指標</th><th>改善</th></tr>
-<tr><td>料肉比</td><td>↓ 15%</td></tr>
-<tr><td>氨氣濃度</td><td>↓ 60~80%</td></tr>
-<tr><td>死亡率</td><td>↓ 30~50%</td></tr>
-<tr><td>獸藥費用</td><td>↓ 40~60%</td></tr>
+<tr><th>指標</th><th>改善幅度</th></tr>
+<tr><td>料肉比</td><td>下降 15%</td></tr>
+<tr><td>畜舍氨氣濃度</td><td>下降 60~80%</td></tr>
+<tr><td>豬隻死亡率</td><td>降低 30~50%</td></tr>
+<tr><td>獸藥費用</td><td>節省 40~60%</td></tr>
 </table>
-<p style="font-size:.78rem">水產：每畝每周1kg菌液；飼料添加100~200ml+糖200g+水15kg</p>
+<p class="note">水產應用：每畝每周潑灑 1kg EM 菌液；飼料添加 100~200ml EM 菌+糖 200g+水 15kg+飼料 100kg。</p>
 </div>
-<div>
-<h3>屏東縣政府推廣</h3>
-<p style="font-size:.82rem">縣府農業處 + 食工所廖麗玲博士</p>
-<p style="font-size:.82rem">光合菌固氮溶磷 → 土壤益菌↑ → 作物吸收力↑ → 農藥肥料↓</p>
-<p style="font-size:.82rem"><strong>農友寶哥：</strong>「光合菌就像益生菌，腸道健康才能良好吸收」</p>
+<div class="highlight">
+<h3>屏東縣政府推廣光合菌</h3>
+<p>屏東縣政府農業處邀請食工所廖麗玲博士指導，推動友善農業。</p>
+<p>光合菌固氮溶磷 → 土壤益菌量增加 → 作物吸收力提升 → 達成農藥及肥料減量</p>
+<p style="margin-top:10px"><strong>農友寶哥（雲林）：</strong> 「光合菌就像益生菌，腸道健康才能良好吸收。植物也是一樣，根系強壯了，吸收的營養自然就會變好。」</p>
 </div>
 </div>
 </div>
 </div>
 
-<!-- ===== SLIDE 17: 失敗排除 ===== -->
+<!-- ===== 21: 失敗排除 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>捌、常見失敗與排除</h2></div>
+<h2>拾壹、常見失敗原因與排除</h2>
 <table>
-<tr><th>現象</th><th>原因</th><th>對策</th></tr>
-<tr><td>菌液發黑/發臭</td><td>雜菌污染</td><td>加強消毒，用RO水，重培養</td></tr>
-<tr><td>菌液不變紅</td><td>光照不足/太冷</td><td>移陽光處，保持25°C以上</td></tr>
-<tr><td>菌液變綠</td><td>藻類污染</td><td>密封避光，檢討水源</td></tr>
-<tr><td>無效果</td><td>濃度/頻率不足</td><td>200~300倍，7天/次</td></tr>
-<tr><td>葉片灼傷</td><td>稀釋&lt;100倍/中午噴</td><td>300倍以上，傍晚噴</td></tr>
-<tr><td>花果掉落</td><td>開花期濃度過高</td><td>暫停或800倍以上</td></tr>
-<tr><td>病害增加</td><td>混入病原菌</td><td>送檢菌液，加強無菌操作</td></tr>
+<tr><th>現象</th><th>原因</th><th>解決方案</th></tr>
+<tr><td>菌液發黑 / 發臭</td><td>雜菌污染</td><td>全部倒掉，加強消毒，改用 RO 水，重新培養</td></tr>
+<tr><td>菌液培養好幾天不變紅</td><td>光照不足 / 溫度太低</td><td>移到陽光充足處，維持 25°C 以上</td></tr>
+<tr><td>菌液變成綠色</td><td>藻類污染</td><td>加強密封避光，檢討水源是否乾淨</td></tr>
+<tr><td>產氣過多 / 桶子膨脹</td><td>糖分過多 / 溫度太高</td><td>降低糖量、控制溫度不超過 40°C</td></tr>
+<tr><td>田間使用完全沒效果</td><td>菌液濃度太低 / 使用間隔太長</td><td>提高濃度至 200~300 倍，縮短為 7 天一次</td></tr>
+<tr><td>葉片出現灼傷</td><td>稀釋倍數低於 100 倍 / 中午噴施</td><td>調整至 300 倍以上，改在傍晚噴灑</td></tr>
+<tr><td>花果大量掉落</td><td>開花期使用濃度太高</td><td>開花期暫停使用，或稀釋至 800 倍以上</td></tr>
+<tr><td>病害反而增加</td><td>自製菌液混入病原菌</td><td>送檢菌液，重新從可信來源取得母菌</td></tr>
 </table>
 </div>
 </div>
 
-<!-- ===== SLIDE 18: 風險 ===== -->
+<!-- ===== 22: 風險 ===== -->
 <div class="slide">
 <div class="slide-content">
-<div class="slide-header"><h2>捌、8大風險與注意事項</h2></div>
-<div class="step"><span class="num" style="background:#e76f51">1</span><div><strong>光合菌不是肥料</strong> — 分解養分非創造養分，需搭配基礎施肥</div></div>
-<div class="step"><span class="num" style="background:#e76f51">2</span><div><strong>保存期限</strong> — EM菌1個月內最佳（2個月活菌↓50%）；光合菌3~6個月</div></div>
-<div class="step"><span class="num" style="background:#e76f51">3</span><div><strong>殺菌劑禁忌</strong> — 不可與殺菌劑、抗生素混合使用 <span class="tag red">禁止</span></div></div>
-<div class="step"><span class="num" style="background:#e76f51">4</span><div><strong>法規現況</strong> — 光合菌尚未正式登記微生物肥料（非孢子菌保存不易），市售品質參差</div></div>
-<div class="step"><span class="num" style="background:#e76f51">5</span><div><strong>根莖類限制</strong> — 地下部膨大期禁用光合菌</div></div>
-<div class="step"><span class="num" style="background:#e76f51">6</span><div><strong>開花期限制</strong> — 光合菌盛花期暫停</div></div>
-<div class="step"><span class="num" style="background:#e76f51">7</span><div><strong>雜菌污染</strong> — 自製可能混入病原菌，器具需消毒</div></div>
-<div class="step"><span class="num" style="background:#e76f51">8</span><div><strong>購買建議</strong> — 向食工所等可信來源取得母菌</div></div>
+<h2>拾貳、8 大風險與注意事項</h2>
+<div class="step"><span class="num" style="background:#e63946">1</span><div><strong>光合菌不是肥料</strong> — 它分解養分而非創造養分，長期使用一定要搭配基礎施肥，否則土壤養分會枯竭。</div></div>
+<div class="step"><span class="num" style="background:#e63946">2</span><div><strong>保存期限嚴格</strong> — EM 菌 1 個月內效果最佳，2 個月後活菌數下降約 50%。光合菌可保存 3~6 個月。</div></div>
+<div class="step"><span class="num" style="background:#e63946">3</span><div><strong>殺菌劑不能混用</strong> — <span class="tag red">絕對不可</span>與殺菌劑、抗生素同時混合使用，否則菌會被殺死。</div></div>
+<div class="step"><span class="num" style="background:#e63946">4</span><div><strong>法規現況不明</strong> — 光合菌因非孢子菌保存不易，尚未正式登記為微生物肥料。市售產品品質參差不齊，部分產品完全不含光合菌。</div></div>
+<div class="step"><span class="num" style="background:#e63946">5</span><div><strong>根莖類禁用</strong> — 紅蘿蔔、馬鈴薯等地下部作物在膨大期使用光合菌，會導致鬚根過多變成價格較差的格外品。</div></div>
+<div class="step"><span class="num" style="background:#e63946">6</span><div><strong>開花期暫停</strong> — 光合菌會刺激營養生長，盛花期使用會一直長葉子不開花。</div></div>
+<div class="step"><span class="num" style="background:#e63946">7</span><div><strong>雜菌污染風險</strong> — 自製菌液如果操作環境不乾淨，可能混入病原菌，反而傷害作物。所有器具都要消毒。</div></div>
+<div class="step"><span class="num" style="background:#e63946">8</span><div><strong>母菌來源很重要</strong> — 盡量向食工所、水試所等可信來源取得母菌，避免來路不明的產品。第一次購買可以先少量試用。</div></div>
 </div>
 </div>
 
-<!-- ===== SLIDE 19: 總結 ===== -->
+<!-- ===== 23: 總結 ===== -->
 <div class="slide end">
 <h1>總結效益</h1>
-<div style="max-width:800px;margin:20px auto;text-align:left">
+<div style="max-width:850px;margin:24px auto;text-align:left">
 <div class="kpi-grid">
-<div class="kpi-item" style="background:rgba(255,255,255,.12)"><div class="num" style="color:#b7e4c7">8~15萬</div><div class="lbl" style="color:#d8f3dc">年淨效益（3~5公頃）</div></div>
-<div class="kpi-item" style="background:rgba(255,255,255,.12)"><div class="num" style="color:#b7e4c7">&lt;2,000</div><div class="lbl" style="color:#d8f3dc">首次投入成本（元）</div></div>
-<div class="kpi-item" style="background:rgba(255,255,255,.12)"><div class="num" style="color:#b7e4c7">40~60</div><div class="lbl" style="color:#d8f3dc">月增工時</div></div>
-<div class="kpi-item" style="background:rgba(255,255,255,.12)"><div class="num" style="color:#b7e4c7">&gt;500%</div><div class="lbl" style="color:#d8f3dc">ROI</div></div>
+<div class="kpi-item"><div class="num">8~15 萬</div><div class="lbl">年淨效益（3~5 公頃）</div></div>
+<div class="kpi-item"><div class="num">&lt; 2,000</div><div class="lbl">首次投入成本（元）</div></div>
+<div class="kpi-item"><div class="num">40~60</div><div class="lbl">月增工時（小時）</div></div>
+<div class="kpi-item"><div class="num">&gt; 500%</div><div class="lbl">年化投資報酬率</div></div>
 </div>
-<p style="font-size:.95rem;margin-top:16px;color:#b7e4c7"><strong>最高策略：</strong>光合菌為主（根系強化）+ EM菌為輔（堆肥+除臭）</p>
-<p style="font-size:.85rem;color:#95d5b2">先向食品工業發展研究所參加免費課程，取得正確母菌與技術</p>
+<p style="font-size:1.1rem;margin-top:20px;color:#a8b2d1"><strong>最高策略：</strong> 光合菌為主（根系強化） + EM 菌為輔（堆肥+除臭）</p>
+<p style="font-size:1rem;color:#6c7a9e;margin-top:6px">先向食品工業發展研究所參加免費課程，取得正確母菌與技術，再全面導入農場。</p>
+<p style="font-size:.85rem;color:#4a5568;margin-top:24px"><strong>下載 PPTX 簡報：</strong> 同一目錄下有「EM菌與光合菌農場實務手冊.pptx」</p>
 </div>
-<p style="font-size:.7rem;color:#6a9e6a;margin-top:20px">資料來源：食工所、農業試驗所、農業知識入口網、上下游新聞、水產試驗所。無虛構成分。</p>
+<p style="font-size:.75rem;color:#4a5568;margin-top:20px">資料來源：食品工業發展研究所、農業試驗所、農業知識入口網、上下游新聞、水產試驗所。無虛構成分。</p>
 </div>
 
-</div><!-- /slides -->
-</div><!-- /deck -->
+</div><!-- slides -->
+</div><!-- deck -->
 
-<!-- ===== NAVIGATION ===== -->
+<!-- ===== NAV ===== -->
 <div class="nav">
 <button class="nav-btn" id="prevBtn" onclick="prevSlide()">‹</button>
 <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
@@ -508,12 +641,11 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'End') { current = total - 1; update(); }
 });
 
-// Touch swipe support
-let touchStartX = 0, touchEndX = 0;
-document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+let tx = 0, tx2 = 0;
+document.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; });
 document.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  const diff = touchStartX - touchEndX;
+  tx2 = e.changedTouches[0].screenX;
+  const diff = tx - tx2;
   if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
 });
 
